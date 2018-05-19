@@ -1,4 +1,8 @@
-const questions = ["Hello"]
+const questions = [{
+    message: "Hello",
+}, {
+    message: "World"
+}]
 
 export function isUserLoggedIn() {
     //check auth
@@ -8,16 +12,16 @@ export function isUserLoggedIn() {
         //some shit here
         return true
     } else {
-        return false;
+        return false
     }
 }
 
 export function onboardUser() {
     //eventually call to firebase
-    return questions;
+    return questions
 }
 
 function authStatus() {
-
+    return false;
 }
 

@@ -9,7 +9,8 @@ class ChatWindow extends Component {
         super();
 
         this.state = {
-            messages: []
+            messages: [],
+            currentOnboardingQuestion: 0
         }
     }
 
@@ -20,17 +21,15 @@ class ChatWindow extends Component {
             //do something
         } else {
             const questions = onboardUser();
-
-            this.setState({
-                messages: questions
-            })
         }
     }
 
     createMessage(message) {
 
+        const messageData = { message }
+
         this.setState({
-            messages: [ ...this.state.messages, message ]
+            messages: [ ...this.state.messages, messageData ]
         })
     }
 
@@ -38,7 +37,7 @@ class ChatWindow extends Component {
     render() {
         return (
             <div className="ChatWindow">
-                <MessageWindow messages={this.state.messages} />
+                <MessageWindow messages={this.state.messages} currentQuestion={this.state.currentOnboardingQuestion} />
                 <InputField createMessage={this.createMessage.bind(this) } />
             </div>
         );

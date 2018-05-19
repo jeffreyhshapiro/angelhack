@@ -19,7 +19,6 @@ class InputField extends Component {
 
     createMessage(e) {
         e.preventDefault();
-        console.log(this.state.userMessage);
 
         this.props.createMessage(this.state.userMessage);
     }

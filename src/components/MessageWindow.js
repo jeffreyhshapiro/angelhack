@@ -12,9 +12,9 @@ class MessageWindow extends Component {
                 
                 {
                     this.props.messages.map((msg, i) => {
-                        return <div key={i}>{ msg }</div>
+                        return <div key={i}>{ msg.message }</div>
                     })
-                }
+                } 
 
             </div>
         );
