@@ -9,11 +9,26 @@ class InputField extends Component {
         }
     }
 
+    setUserState(e) {
+        const val = e.target.value;
+
+        this.setState({
+            userMessage: val
+        });
+    }
+
+    createMessage(e) {
+        e.preventDefault();
+        console.log(this.state.userMessage);
+
+        this.props.createMessage(this.state.userMessage);
+    }
+
     render() {
         return (
             <div className="InputField">
-                <form method="POST" action="" onSubmit={ this.props.createMessage.bind(this) }>
-                    <input type="text" onChange={this.props.setMessage.bind(this)} className="inputField" /> 
+                <form method="POST" action="" onSubmit={ this.createMessage.bind(this) }>
+                    <input type="text" onChange={this.setUserState.bind(this)} className="inputField" /> 
                     <input type="submit"  className="submitText" />
                 </form>
 
