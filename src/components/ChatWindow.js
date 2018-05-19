@@ -2,13 +2,28 @@ import React, { Component } from 'react';
 import InputField from './InputField.js';
 import MessageWindow from './MessageWindow.js';
 import '../styles/ChatWindow.css'
+import { isUserLoggedIn, onboardUser } from '../utils/utils.js'
 
 class ChatWindow extends Component {
     constructor() {
         super();
 
         this.state = {
-            messages: ["Hello World", "How are you doing today?", "Lorem ipsum dolor sit amet", "Let's write some code"],
+            messages: []
+        }
+    }
+
+    componentWillMount() {
+        const status = isUserLoggedIn();
+        
+        if(status) {
+            //do something
+        } else {
+            const questions = onboardUser();
+
+            this.setState({
+                messages: questions
+            })
         }
     }
 
