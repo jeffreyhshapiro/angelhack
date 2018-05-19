@@ -1,12 +1,4 @@
-const questions = [{
-    message: "Hello there",
-    id: 1,
-    nextId: 2
-}, {
-    message: "How are you",
-    id: 2,
-    nextId: 3
-}]
+const questions = ["Hello"]
 
 export function isUserLoggedIn() {
     //check auth
