@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {auth} from '../utils/firebaseAuth';
-
+import store from '../utils/store';
 class Authbutton extends Component {
   constructor() {
         super();
@@ -13,7 +13,10 @@ class Authbutton extends Component {
  openAuthPopup = ()=>{
    let provider = new auth.GoogleAuthProvider();
     auth().signInWithPopup(provider).then((result) => {
-      console.log(result.user);
+      store.dispatch({
+        type: 'initialUser',
+        user: result.user
+      });
       this.setState({
         output: `welcome back ${result.user.displayName}`
       });
