@@ -4,15 +4,14 @@ import '../styles/MessageWindow.css';
 //WE WILL NEED INDIVIDUAL MESSAGE COMPONENTS
 
 class MessageWindow extends Component {
-    render() {
 
-        const messageSeed = ["Hello World", "How are you doing today?", "Lorem ipsum dolor sit amet", "Let's write some code"];
+    render() {
 
         return (
             <div className="MessageWindow">
                 
                 {
-                    messageSeed.map((msg, i) => {
+                    this.props.messages.map((msg, i) => {
                         return <div key={i}>{ msg }</div>
                     })
                 }
