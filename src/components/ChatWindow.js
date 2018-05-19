@@ -12,26 +12,11 @@ class ChatWindow extends Component {
         }
     }
 
-    createMessage(e) {
-        e.preventDefault();
+    createMessage(message) {
 
-        console.log(this.state.userMessage)
-
-        return;
         this.setState({
-            messages: this.state.messages.push(this.state.userMessage)
+            messages: [ ...this.state.messages, message ]
         })
-    }
-
-    userMessage(e) {
-
-        const message = e.target.value;
-
-        console.log(e.target.value)
-
-        this.setState({
-            userMessage: message
-        });
     }
 
 
@@ -39,7 +24,7 @@ class ChatWindow extends Component {
         return (
             <div className="ChatWindow">
                 <MessageWindow messages={this.state.messages} />
-                <InputField createMessage={this.createMessage} setMessage={this.userMessage} />
+                <InputField createMessage={this.createMessage.bind(this) } />
             </div>
         );
     }
