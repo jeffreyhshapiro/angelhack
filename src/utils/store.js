@@ -3,7 +3,11 @@ import { createStore, combineReducers } from "redux";
 const authReducer = function (state = {}, action) {
 
     switch (action.type) {
-
+      case 'initialUser':
+        state.currentUser = action.user
+        break;
+      default:
+        break;
     }
 
     return state;
